@@ -1,6 +1,5 @@
 package it.eomm.plugins.dolm.test;
 
-import it.eomm.plugins.dolm.Dolm;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
 import java.io.File;
