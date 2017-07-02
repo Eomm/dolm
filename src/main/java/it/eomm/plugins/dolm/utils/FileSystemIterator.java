@@ -10,19 +10,19 @@ public class FileSystemIterator implements Iterator<File> {
 
    private FilenameFilter filter;
 
-   private File[] directory;
+   private File[] directoryContent;
    private int index;
 
    public FileSystemIterator(String path) {
       super();
       this.path = path;
       this.index = 0;
-      this.directory = null;
+      this.directoryContent = null;
    }
 
    private void openDirectory() {
       // if is already open don't read
-      if (this.directory != null) {
+      if (this.directoryContent != null) {
          return;
       }
 
@@ -30,20 +30,20 @@ public class FileSystemIterator implements Iterator<File> {
 
       // TODO
       // if (!dir.isDirectory())
-      // throw new IOException(path + " isn't a directory");
+      // throw new IOException(path + " isn't a directoryContent");
 
-      this.directory = dir.listFiles(filter);
+      this.directoryContent = dir.listFiles(filter);
 
       // if nothing was found listFiles return null
-      if (this.directory == null) {
-         this.directory = new File[0];
+      if (this.directoryContent == null) {
+         this.directoryContent = new File[0];
       }
    }
 
    @Override
    public boolean hasNext() {
       openDirectory();
-      return index < directory.length;
+      return index < directoryContent.length;
    }
 
    @Override
@@ -51,7 +51,7 @@ public class FileSystemIterator implements Iterator<File> {
       if (!hasNext()) {
          return null;
       }
-      return directory[index++];
+      return directoryContent[index++];
    }
 
    @Override
