@@ -28,12 +28,8 @@ We explain a simple example process that can fit to your organization.
 + TODO
 
 ### Feature
-1. Convert all the `.md` files in a directory to `*-converted.pdf` files in a output directory
-2. **[TODO]** Versioning the output name of the pdfs _(es: README-v1.0.0.pdf)_
-3. **[TODO]** Add a template system to the `.md` files
-4. **[TODO]** Customize the output file format (`docx`, `odt`, ecc...)
-
-
+1. Convert all the `.md` files in a directory to files in a output directory
+2. Versioning the output name of the pdf's _(es: README-v1.0.0.pdf)_
 
 ### Know Limits
 + The images path on the `.md` file must be absolute
@@ -42,20 +38,25 @@ We explain a simple example process that can fit to your organization.
 ## Usage
 
 ### Installation
-Once [installed the lib](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html) on your local machine simply add:
+Once [installed the lib](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html) on your local machine simply add to your pom's:
 ```
 <build>
   <plugins>
     <plugin>
       <groupId>it.eomm.plugins</groupId>
       <artifactId>dolm-maven-plugin</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>LATEST</version>
       <executions>
         <execution>
         <id>build-nice-docs</id>
         <goals>
-          <goal>build-docs</goal>
+          <goal>build</goal>
         </goals>
+        <configuration>
+            <sourcePath>${project.basedir}/src/main/resources/docs/functional</sourcePath>
+            <documentVersion>9.0.8</documentVersion>
+            <filenamePatternOutput>%4$td_%1$s-%2$s.%3$s</filenamePatternOutput>
+        </configuration>
         </execution>
       </executions>
     </plugin>
@@ -63,13 +64,22 @@ Once [installed the lib](https://maven.apache.org/guides/mini/guide-3rd-party-ja
 </build>
 ```
 
+### Run
+After the installation you can run the build goal by:
+    
+    mvn dolm:build
+    
+or using the default maven lifecycle:
+
+    mvn pre-site
+    mvn site
+
+or, of course, you can customize the phase executions of the plugin specifying the `<phase>` tag on the `<execution>` declaration.
+
 ### Goals
 Goal | Default Phase | Description |
 --- | --- | --- |
-`draft`|`pre-site`|Generate |
-`build`|`site`||
-
-example: `dolm:draft`
+`build`|`pre-site`|Convert all the files in the `${sourcePath}` that match `${filter}` and save them in the `${outputPath}` with the `${filenamePatternOutput}` filename|
 
 
 ### Parameters
@@ -78,6 +88,23 @@ Name | Description | Default value
 sourcePath | Directory where the `md` files are read | src\main\resources\docs
 outputPath | Directory where the output files are stored  | target\docs
 filter | Pattern to ignore some filename | `(.)*md$`
+documentVersion|The document version to apply|`${project.version}`
+filenamePatternOutput|Customize the file name of the output files by `String.format`|`%1$s.%3$s`
+
+#### Filename Pattern
+This table resume the parameters passed to the `String.format` method's.
+
+Code | Description
+--- | --- |
+%1$s | source filename (with no extension)
+%2$s | ${documentVersion} parameter
+%3$s | output file format (eg: pdf)
+%4$tD | date as MM/dd/yy
+%4$td | current day
+%4$tm | current month
+%4$ty | current 2 digit's year
+%4$tY | current 4 digit's year
+
 
 ### Test
 Simply run `mvn test`
@@ -85,9 +112,10 @@ Simply run `mvn test`
 ### Next steps
 + :white_check_mark: JUnit 
 + :white_check_mark: Better integration in maven lifecycle
-+ Deploy on [mvnrepository](https://mvnrepository.com/)
-+ Define License
++ :man_technologist_tone2: Deploy on [mvn-repository](http://central.sonatype.org/)
++ :man_technologist_tone2: Add a template system to the `.md` files
++ :man_technologist_tone2: Customize the output file format (`docx`, `odt`, ecc...)
 
-#### Dependancies
+### Dependancies
 + [com.atlassian.commonmark](https://github.com/atlassian/commonmark-java) for convert markdown to html
 + [com.itextpdf](http://itextpdf.com/) for build the PDF from an html string
