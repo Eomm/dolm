@@ -23,15 +23,26 @@ The analyst can create and update the functional documentation using his VCS and
 
 The software developer's team can create and update the technical documentation using his VCS and build a nice PDF (for now) for the software's analyst.
 
+This simplify the sharing of documentation improving the communication process between analyst and developers.
+
+The scope is: all the team must be up-to-date and the requirements must be available to everyone, avoiding oversights or human's errors like forgot an attachment.
+
 ### Process
-We explain a simple example process that can fit to your organization.
-+ TODO
+If your situation is this ("Agile" in this image is an ideal not a fact):
+
+![Before Dolm](images/before.jpg)
+
+You can switch to this (git in the example isn't mandatory):
+
+![Before Dolm](images/after.jpg)
+
+Adopting a better communication between analysts and developer's team, but without force your customers to change their mind (receive documentation via emails or something like that).
 
 ### Feature
 1. Convert all the `.md` files in a directory to files in a output directory
 2. Versioning the output name of the pdf's _(es: README-v1.0.0.pdf)_
 
-### Know Limits
+#### Know Limits
 + The images path on the `.md` file must be absolute
 + The tables aren't styled
 
@@ -112,9 +123,9 @@ Simply run `mvn test`
 ### Next steps
 + :white_check_mark: JUnit 
 + :white_check_mark: Better integration in maven lifecycle
-+ :man_technologist_tone2: Deploy on [mvn-repository](http://central.sonatype.org/)
-+ :man_technologist_tone2: Add a template system to the `.md` files
-+ :man_technologist_tone2: Customize the output file format (`docx`, `odt`, ecc...)
++ :white_medium_square: Deploy on [mvn-repository](http://central.sonatype.org/)
++ :white_medium_square: Add a template system to the `.md` files
++ :white_medium_square: Customize the output file format (`docx`, `odt`, ecc...)
 
 ### Dependancies
 + [com.atlassian.commonmark](https://github.com/atlassian/commonmark-java) for convert markdown to html
