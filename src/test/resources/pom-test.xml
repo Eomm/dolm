@@ -16,35 +16,13 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <!--<version>3.8.1</version>-->
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>it.eomm.plugins</groupId>
                 <artifactId>dolm-maven-plugin</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <configuration>
-                    <filter>(.)*md$</filter>
-                    <sourcePath>/</sourcePath>
-                    <outputPath>/</outputPath>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>build-nice-docs</id>
-                        <goals>
-                            <goal>build-docs</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <!-- The configuration is in DolmTest.java test-class -->
+                <configuration/>
             </plugin>
         </plugins>
     </build>

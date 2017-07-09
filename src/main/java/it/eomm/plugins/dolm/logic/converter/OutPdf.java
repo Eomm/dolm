@@ -43,7 +43,11 @@ public class OutPdf implements IConverter<Converted<File, Node>, Converted<Node,
         Document document = new Document();
         try {
             // prepare the output file
-            String fileOutFileName = String.format(outputFileNamePattern, input.getFrom().getName(), outputFileVersion, "pdf", new Date());
+            String fileName = input.getFrom().getName();
+            if (fileName.contains(".")) {
+                fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+            }
+            final String fileOutFileName = String.format(outputFileNamePattern, fileName, outputFileVersion, "pdf", new Date());
             File out = new File(outputPath, fileOutFileName);
 
             // convert the content of md file to string

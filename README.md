@@ -110,7 +110,6 @@ Code | Description
 %1$s | source filename (without extension)
 %2$s | ${documentVersion} parameter
 %3$s | output file format (eg: pdf)
-%4$tD | date as MM/dd/yy
 %4$td | current day
 %4$tm | current month
 %4$ty | current 2 digit's year
@@ -118,7 +117,7 @@ Code | Description
 
 
 ### Test
-Simply run `mvn test`
+Simply run `mvn clean test`
 
 ### Next steps
 + :white_check_mark: JUnit 
