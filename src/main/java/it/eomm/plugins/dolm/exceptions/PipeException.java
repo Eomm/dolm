@@ -1,24 +1,24 @@
 package it.eomm.plugins.dolm.exceptions;
 
-public class ConvertException extends Exception {
+public class PipeException extends Exception {
     /**
      *
      */
     private static final long serialVersionUID = 1L;
 
-    public ConvertException() {
+    public PipeException() {
         super();
     }
 
-    public ConvertException(String message, Throwable cause) {
+    public PipeException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public ConvertException(String message) {
+    public PipeException(String message) {
         super(message);
     }
 
-    public ConvertException(Throwable cause) {
+    public PipeException(Throwable cause) {
         super(cause);
     }
 
