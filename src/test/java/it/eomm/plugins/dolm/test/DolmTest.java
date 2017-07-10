@@ -4,6 +4,7 @@ import it.eomm.plugins.dolm.IDolm;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
 import java.io.File;
+import java.util.Calendar;
 
 /**
  * Created by Manuel Spigolon on 21/04/2017.
@@ -76,8 +77,12 @@ public class DolmTest extends AbstractMojoTestCase {
         mojo.setDocumentVersion("1.2.3.4");
         mojo.execute();
 
-        assertFileExist(outputDir + "/name/FT-awsomeTechDocService-1.2.3.4-09-07-17-2017.pdf");
-        assertFileNotExist(outputDir + "/name/FT-awsomeTechDoc-1.2.3.4-09-07-17-2017.pdf");
+        Calendar today = Calendar.getInstance();
+        String d = String.format("%02d", today.get(Calendar.DAY_OF_MONTH));
+        String m = String.format("%02d", today.get(Calendar.MONTH) + 1);
+        String y = String.valueOf(today.get(Calendar.YEAR));
+        assertFileExist(outputDir + "/name/FT-awsomeTechDocService-1.2.3.4-" + d + "-" + m + "-" + y.substring(2) + "-" + y + ".pdf");
+        assertFileNotExist(outputDir + "/name/FT-awsomeTechDoc-1.2.3.4-" + d + "-" + m + "-" + y.substring(2) + "-" + y + ".pdf");
     }
 
     public void testEmptySourceDirectory() throws Exception {
@@ -88,10 +93,6 @@ public class DolmTest extends AbstractMojoTestCase {
         mojo.setFilenamePatternOutput("%1$s-%2$s.%3$s");
         mojo.execute();
         // no errors expected
-    }
-
-    public void testMandatoryParameter() {
-        // TODO
     }
 
     private void assertFileExist(final String filePath) {
