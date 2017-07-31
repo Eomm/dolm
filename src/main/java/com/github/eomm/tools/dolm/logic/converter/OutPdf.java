@@ -1,12 +1,12 @@
-package it.eomm.tools.dolm.logic.converter;
+package com.github.eomm.tools.dolm.logic.converter;
 
+import com.github.eomm.tools.dolm.bean.Converted;
+import com.github.eomm.tools.dolm.logic.IConverter;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
-import it.eomm.tools.dolm.bean.Converted;
-import it.eomm.tools.dolm.exceptions.ConvertException;
-import it.eomm.tools.dolm.logic.IConverter;
-import it.eomm.tools.dolm.utils.ConvertFactory;
+import com.github.eomm.tools.dolm.exceptions.ConvertException;
+import com.github.eomm.tools.dolm.utils.ConvertFactory;
 import org.commonmark.node.Node;
 
 import java.io.ByteArrayInputStream;

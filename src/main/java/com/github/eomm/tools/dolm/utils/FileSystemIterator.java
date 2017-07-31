@@ -1,4 +1,4 @@
-package it.eomm.tools.dolm.utils;
+package com.github.eomm.tools.dolm.utils;
 
 import java.io.File;
 import java.io.FilenameFilter;

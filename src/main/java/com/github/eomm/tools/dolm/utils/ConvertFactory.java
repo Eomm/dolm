@@ -1,4 +1,4 @@
-package it.eomm.tools.dolm.utils;
+package com.github.eomm.tools.dolm.utils;
 
 import org.commonmark.Extension;
 import org.commonmark.parser.Parser;

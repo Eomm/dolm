@@ -19,7 +19,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>it.eomm.tools</groupId>
+                <groupId>com.github.eomm</groupId>
                 <artifactId>dolm-maven-plugin</artifactId>
                 <!-- The configuration is in DolmTest.java test-class -->
                 <configuration/>

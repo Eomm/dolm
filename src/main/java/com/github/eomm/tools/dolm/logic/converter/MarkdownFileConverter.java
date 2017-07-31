@@ -1,9 +1,9 @@
-package it.eomm.tools.dolm.logic.converter;
+package com.github.eomm.tools.dolm.logic.converter;
 
-import it.eomm.tools.dolm.bean.Converted;
-import it.eomm.tools.dolm.exceptions.ConvertException;
-import it.eomm.tools.dolm.logic.IConverter;
-import it.eomm.tools.dolm.utils.ConvertFactory;
+import com.github.eomm.tools.dolm.bean.Converted;
+import com.github.eomm.tools.dolm.logic.IConverter;
+import com.github.eomm.tools.dolm.exceptions.ConvertException;
+import com.github.eomm.tools.dolm.utils.ConvertFactory;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 

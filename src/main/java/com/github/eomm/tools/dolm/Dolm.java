@@ -1,4 +1,4 @@
-package it.eomm.tools.dolm;
+package com.github.eomm.tools.dolm;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.logging.Log;

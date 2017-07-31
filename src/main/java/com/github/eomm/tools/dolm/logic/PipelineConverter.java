@@ -1,6 +1,6 @@
-package it.eomm.tools.dolm.logic;
+package com.github.eomm.tools.dolm.logic;
 
-import it.eomm.tools.dolm.exceptions.PipeException;
+import com.github.eomm.tools.dolm.exceptions.PipeException;
 
 import java.util.ArrayList;
 import java.util.List;

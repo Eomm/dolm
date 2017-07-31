@@ -1,6 +1,6 @@
-package it.eomm.tools.dolm.test;
+package com.github.eomm.tools.dolm.test;
 
-import it.eomm.tools.dolm.IDolm;
+import com.github.eomm.tools.dolm.IDolm;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
 import java.io.File;

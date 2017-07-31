@@ -1,6 +1,6 @@
-package it.eomm.tools.dolm.logic;
+package com.github.eomm.tools.dolm.logic;
 
-import it.eomm.tools.dolm.exceptions.ConvertException;
+import com.github.eomm.tools.dolm.exceptions.ConvertException;
 
 /**
  * Created by Manuel Spigolon on 02/07/2017.

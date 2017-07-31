@@ -54,9 +54,9 @@ Once you [installed the lib](https://maven.apache.org/guides/mini/guide-3rd-part
 <build>
   <plugins>
     <plugin>
-      <groupId>it.eomm.tools</groupId>
+      <groupId>com.github.eomm</groupId>
       <artifactId>dolm-maven-plugin</artifactId>
-      <version>LATEST</version>
+      <version>1.0.0</version>
       <executions>
         <execution>
         <id>build-nice-docs</id>
@@ -122,7 +122,7 @@ Simply run `mvn clean test`
 ### Next steps
 + :white_check_mark: JUnit 
 + :white_check_mark: Better integration in the maven lifecycle
-+ :hourglass_flowing_sand: Deploy on [mvn-repository](http://central.sonatype.org/)
++ :white_check_mark: Deploy on [Sonatype's Open Source Software Repository Hosting (OSSRH)](https://oss.sonatype.org/content/groups/public/com/github/eomm/dolm-maven-plugin/)
 + :white_medium_square: Add a template system to the `.md` files
 + :white_medium_square: Customize the output file format (`docx`, `odt`, ecc...)
 

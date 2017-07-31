@@ -1,13 +1,13 @@
-package it.eomm.tools.dolm.goals;
+package com.github.eomm.tools.dolm.goals;
 
-import it.eomm.tools.dolm.Dolm;
-import it.eomm.tools.dolm.bean.Converted;
-import it.eomm.tools.dolm.logic.PipelineConverter;
-import it.eomm.tools.dolm.logic.converter.MarkdownFileConverter;
-import it.eomm.tools.dolm.logic.converter.OutPdf;
-import it.eomm.tools.dolm.utils.ConvertFactory;
-import it.eomm.tools.dolm.utils.FileNamePatternFilter;
-import it.eomm.tools.dolm.utils.FileSystemIterator;
+import com.github.eomm.tools.dolm.Dolm;
+import com.github.eomm.tools.dolm.bean.Converted;
+import com.github.eomm.tools.dolm.logic.PipelineConverter;
+import com.github.eomm.tools.dolm.logic.converter.MarkdownFileConverter;
+import com.github.eomm.tools.dolm.logic.converter.OutPdf;
+import com.github.eomm.tools.dolm.utils.FileNamePatternFilter;
+import com.github.eomm.tools.dolm.utils.FileSystemIterator;
+import com.github.eomm.tools.dolm.utils.ConvertFactory;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;

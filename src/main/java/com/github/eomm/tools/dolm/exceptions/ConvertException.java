@@ -1,4 +1,4 @@
-package it.eomm.tools.dolm.exceptions;
+package com.github.eomm.tools.dolm.exceptions;
 
 public class ConvertException extends Exception {
     /**
