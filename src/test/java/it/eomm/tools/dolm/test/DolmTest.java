@@ -1,6 +1,6 @@
-package it.eomm.plugins.dolm.test;
+package it.eomm.tools.dolm.test;
 
-import it.eomm.plugins.dolm.IDolm;
+import it.eomm.tools.dolm.IDolm;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
 import java.io.File;
@@ -89,7 +89,7 @@ public class DolmTest extends AbstractMojoTestCase {
         IDolm mojo = getDolmMojo();
         mojo.setSourcePath(sourceDir + "/empty");
         mojo.setOutputPath(outputDir);
-        mojo.setFilter("*");
+        mojo.setFilter("\\\\*");
         mojo.setFilenamePatternOutput("%1$s-%2$s.%3$s");
         mojo.execute();
         // no errors expected

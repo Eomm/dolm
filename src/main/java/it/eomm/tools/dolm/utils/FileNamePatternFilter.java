@@ -1,4 +1,4 @@
-package it.eomm.plugins.dolm.utils;
+package it.eomm.tools.dolm.utils;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -7,6 +7,10 @@ public class FileNamePatternFilter implements FilenameFilter {
 
     private String pattern;
 
+    /**
+     * Filter a java.util.File by his filename
+     * @param pattern mandatory pattern
+     */
     public FileNamePatternFilter(String pattern) {
         super();
 

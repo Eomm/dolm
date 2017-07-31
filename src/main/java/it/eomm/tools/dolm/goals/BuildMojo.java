@@ -1,13 +1,13 @@
-package it.eomm.plugins.dolm.goals;
+package it.eomm.tools.dolm.goals;
 
-import it.eomm.plugins.dolm.Dolm;
-import it.eomm.plugins.dolm.bean.Converted;
-import it.eomm.plugins.dolm.logic.PipelineConverter;
-import it.eomm.plugins.dolm.logic.converter.MarkdownFileConverter;
-import it.eomm.plugins.dolm.logic.converter.OutPdf;
-import it.eomm.plugins.dolm.utils.ConvertFactory;
-import it.eomm.plugins.dolm.utils.FileNamePatternFilter;
-import it.eomm.plugins.dolm.utils.FileSystemIterator;
+import it.eomm.tools.dolm.Dolm;
+import it.eomm.tools.dolm.bean.Converted;
+import it.eomm.tools.dolm.logic.PipelineConverter;
+import it.eomm.tools.dolm.logic.converter.MarkdownFileConverter;
+import it.eomm.tools.dolm.logic.converter.OutPdf;
+import it.eomm.tools.dolm.utils.ConvertFactory;
+import it.eomm.tools.dolm.utils.FileNamePatternFilter;
+import it.eomm.tools.dolm.utils.FileSystemIterator;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -22,6 +22,13 @@ import java.io.File;
 @Mojo(name = "build", defaultPhase = LifecyclePhase.PRE_SITE)
 public class BuildMojo extends Dolm {
 
+    /**
+     * Convert all the files in @{sourcePath} matching the @{filter} filename's pattern to PDF files in the @{outputPath} with @{filenamePatternOutput}.<br>
+     * If there aren't files in the directory the plugins does nothings.
+     *
+     * @throws MojoExecutionException when an unexpected error occurs
+     * @throws MojoFailureException when a parameter is not valid
+     */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         try {

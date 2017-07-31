@@ -1,9 +1,9 @@
-package it.eomm.plugins.dolm.logic.converter;
+package it.eomm.tools.dolm.logic.converter;
 
-import it.eomm.plugins.dolm.bean.Converted;
-import it.eomm.plugins.dolm.exceptions.ConvertException;
-import it.eomm.plugins.dolm.logic.IConverter;
-import it.eomm.plugins.dolm.utils.ConvertFactory;
+import it.eomm.tools.dolm.bean.Converted;
+import it.eomm.tools.dolm.exceptions.ConvertException;
+import it.eomm.tools.dolm.logic.IConverter;
+import it.eomm.tools.dolm.utils.ConvertFactory;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 
@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 
 /**
+ * Convert a {@link File} to a Markdown {@link Node}
  * Created by Manuel Spigolon on 02/07/2017.
  */
 public class MarkdownFileConverter implements IConverter<File, Converted<File, Node>> {
@@ -25,6 +26,11 @@ public class MarkdownFileConverter implements IConverter<File, Converted<File, N
         this.factory = factory;
     }
 
+    /**
+     * @param input a {@link File} in the markdown format
+     * @return a {@link Converted} object with the original {@link File} and the converted {@link Node}
+     * @throws ConvertException if some unexpected error occurs
+     */
     @Override
     public Converted<File, Node> convert(File input) throws ConvertException {
         Parser parser = factory.buildParser();

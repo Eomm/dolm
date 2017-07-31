@@ -1,12 +1,12 @@
-package it.eomm.plugins.dolm.logic.converter;
+package it.eomm.tools.dolm.logic.converter;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
-import it.eomm.plugins.dolm.bean.Converted;
-import it.eomm.plugins.dolm.exceptions.ConvertException;
-import it.eomm.plugins.dolm.logic.IConverter;
-import it.eomm.plugins.dolm.utils.ConvertFactory;
+import it.eomm.tools.dolm.bean.Converted;
+import it.eomm.tools.dolm.exceptions.ConvertException;
+import it.eomm.tools.dolm.logic.IConverter;
+import it.eomm.tools.dolm.utils.ConvertFactory;
 import org.commonmark.node.Node;
 
 import java.io.ByteArrayInputStream;
@@ -14,6 +14,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Date;
 
+/**
+ * Convert a Markdown {@link Node} to a PDF {@link File}.
+ */
 public class OutPdf implements IConverter<Converted<File, Node>, Converted<Node, File>> {
 
     private ConvertFactory factory;
@@ -32,6 +35,14 @@ public class OutPdf implements IConverter<Converted<File, Node>, Converted<Node,
         this.outputFileVersion = outputFileVersion;
     }
 
+    /**
+     * Convert the input node to a PDF file using {@link PdfWriter}.<br>
+     * If the @{outputPath} doesn't exist it will be created.
+     *
+     * @param input a {@link Converted} object with the original file read and the Markdown node.
+     * @return a {@link Converted} object with the node from input and the {@link File} output
+     * @throws ConvertException if some error occurs
+     */
     @Override
     public Converted<Node, File> convert(Converted<File, Node> input) throws ConvertException {
         File outPath = new File(outputPath);

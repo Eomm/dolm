@@ -1,4 +1,4 @@
-package it.eomm.plugins.dolm.exceptions;
+package it.eomm.tools.dolm.exceptions;
 
 public class PipeException extends Exception {
     /**

@@ -1,8 +1,9 @@
-package it.eomm.plugins.dolm.utils;
+package it.eomm.tools.dolm.utils;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class FileSystemIterator implements Iterator<File> {
 
@@ -13,6 +14,11 @@ public class FileSystemIterator implements Iterator<File> {
     private File[] directoryContent;
     private int index;
 
+    /**
+     * Iterate all the files and directory in a dir path
+     *
+     * @param path to read
+     */
     public FileSystemIterator(String path) {
         super();
         this.path = path;
@@ -20,6 +26,9 @@ public class FileSystemIterator implements Iterator<File> {
         this.directoryContent = null;
     }
 
+    /**
+     * Read the directory using <code>File.listFiles</code>
+     */
     private void openDirectory() {
         // if is already open don't read
         if (this.directoryContent != null) {
@@ -28,9 +37,8 @@ public class FileSystemIterator implements Iterator<File> {
 
         File dir = new File(path);
 
-        // TODO
-        // if (!dir.isDirectory())
-        // throw new IOException(path + " isn't a directoryContent");
+         if (!dir.isDirectory())
+             throw new IllegalStateException(path + " isn't a directory");
 
         this.directoryContent = dir.listFiles(filter);
 
@@ -40,23 +48,33 @@ public class FileSystemIterator implements Iterator<File> {
         }
     }
 
+    /**
+     * @see Iterator#hasNext()
+     */
     @Override
     public boolean hasNext() {
         openDirectory();
         return index < directoryContent.length;
     }
 
+    /**
+     * @see Iterator#next()
+     * @throws IllegalStateException if the path is not a directory
+     */
     @Override
     public File next() {
         if (!hasNext()) {
-            return null;
+            throw new NoSuchElementException();
         }
         return directoryContent[index++];
     }
 
+    /**
+     * @see Iterator#remove()
+     */
     @Override
     public void remove() {
-        // TODO NOT IMPLEMENT YET
+        throw new UnsupportedOperationException("remove");
     }
 
     public String getPath() {
@@ -67,6 +85,9 @@ public class FileSystemIterator implements Iterator<File> {
         return filter;
     }
 
+    /**
+     * @param filter an optional filter to apply before iterate the directory
+     */
     public void setFilter(FilenameFilter filter) {
         this.filter = filter;
     }

@@ -1,4 +1,4 @@
-package it.eomm.plugins.dolm.bean;
+package it.eomm.tools.dolm.bean;
 
 import java.io.Serializable;
 

@@ -54,7 +54,7 @@ Once you [installed the lib](https://maven.apache.org/guides/mini/guide-3rd-part
 <build>
   <plugins>
     <plugin>
-      <groupId>it.eomm.plugins</groupId>
+      <groupId>it.eomm.tools</groupId>
       <artifactId>dolm-maven-plugin</artifactId>
       <version>LATEST</version>
       <executions>
@@ -122,7 +122,7 @@ Simply run `mvn clean test`
 ### Next steps
 + :white_check_mark: JUnit 
 + :white_check_mark: Better integration in the maven lifecycle
-+ :white_medium_square: Deploy on [mvn-repository](http://central.sonatype.org/)
++ :hourglass_flowing_sand: Deploy on [mvn-repository](http://central.sonatype.org/)
 + :white_medium_square: Add a template system to the `.md` files
 + :white_medium_square: Customize the output file format (`docx`, `odt`, ecc...)
 
